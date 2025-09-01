@@ -37,36 +37,5 @@ public class PatientController {
 		return patientService.getAllPatients();
 	}
 	
-	
-	
-	//add patient- post request
-	// THIS ONLY CREATING THE PATIENT -- THIS MIGHT NOT THE APPROACH ADD PATIENT BY DOCTOR..
-	// I THINK PATIENT ID MUST BE INCLUDED WHILE ADDING -- REMAINING
-	@PostMapping("/patient")
-	public ResponseEntity<?> savePatient(@RequestBody Patient patient) {
-	    Map<String, Object> map = new HashMap<>();
-	    patientService.createPatient(patient);
-	    map.put("status", 1);
-	    map.put("message", "Record is Saved Successfully!");
-	    return new ResponseEntity<>(map, HttpStatus.CREATED);
-	}
-	
-	@PutMapping("patient/{id}")
-	public ResponseEntity<Patient> updatePatient(@PathVariable long id, @RequestBody Patient patient)throws ResourceNotFoundException{
-		return patientService.updatePatient(id, patient);
-	}
-	
-	@DeleteMapping("patients/{id}")
-	public ResponseEntity<Patient> deletePatient(@PathVariable long id){
-		return patientService.deletePatient(id);
-	}
-	
-	// I HAVE TO IMPLEMENT THAT::
-	
-		//GET ALL PATIENTS BY DOCTORS
-		//GET PATIENT BY ID
-		// UPDATE PATIENT
-		// DELETE PATIENT
-		// ADD NEW PATIENT
-
 }
+
